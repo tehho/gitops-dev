@@ -1,0 +1,37 @@
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  labels:
+    app.kubernetes.io/part-of: argocd
+apiVersion: v1
+data:
+  url: http://dev.argocd.entropyfund.co
+  # users.anonymous.enabled: 'true'
+  # statusbadge.enabled: 'true'
+  # admin.enabled: 'false'
+
+  # repositories: |
+  #   - type: helm
+  #     url: https://charts.bitnami.com/bitnami
+  #     name: bitnami
+  #   - url: https://github.com/entropy-fund/infra-dev
+  #     passwordSecret:
+  #       name: my-secret
+  #       key: password
+  #     usernameSecret:
+  #       name: my-secret
+  #       key: username  
+  # dex.config: |
+  #   connectors:
+  #   - type: github
+  #     # Required field for connector id.
+  #     id: github
+  #     # Required field for connector name.
+  #     name: GitHub
+  #     config:
+  #       # Credentials can be string literals or pulled from the environment.
+  #       clientID: istrau2
+  #       clientSecret: $dex.clientSecret
+  #       redirectURI: http://127.0.0.1:5556/dex/callback
+  #       orgs:
+  #       - name: entropy-fund
