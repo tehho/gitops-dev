@@ -2,6 +2,7 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
   labels:
+    app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 apiVersion: v1
 data:
@@ -10,17 +11,14 @@ data:
   # statusbadge.enabled: 'true'
   # admin.enabled: 'false'
 
-  # repositories: |
-  #   - type: helm
-  #     url: https://charts.bitnami.com/bitnami
-  #     name: bitnami
-  #   - url: https://github.com/entropy-fund/infra-dev
-  #     passwordSecret:
-  #       name: my-secret
-  #       key: password
-  #     usernameSecret:
-  #       name: my-secret
-  #       key: username  
+  repositories: |
+    - type: helm
+      url: https://charts.bitnami.com/bitnami
+      name: bitnami
+    - url: git@github.com:entropy-fund/gitops-dev
+      sshPrivateKeySecret:
+        name: argo-secret
+        key: $gh.sshPrivateKey
   # dex.config: |
   #   connectors:
   #   - type: github
