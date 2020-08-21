@@ -1,4 +1,4 @@
-# deploy-dev
+# gitops-dev
 Declarative spec for the dev cluster on GCP managed by ArgoCD
 
 ## setup
