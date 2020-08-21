@@ -13,5 +13,12 @@ Declarative spec for the dev cluster on GCP managed by ArgoCD
 8. `kubectl config set-context --current --namespace=argocd`
 9. `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
 10. 
+```
+argocd app create main \
+--dest-namespace argocd \
+--dest-server https://kubernetes.default.svc \
+--repo https://github.com/entropy-fund/deploy-dev.git \
+--path argocd
+```
 
 
