@@ -18,7 +18,9 @@ argocd app create main \
 --dest-namespace argocd \
 --dest-server https://kubernetes.default.svc \
 --repo https://github.com/entropy-fund/deploy-dev.git \
---path argocd
+--path main
 ```
+11. `argocd app set main --sync-policy automated`
+12. `argocd app set main --auto-prune`
 
 
