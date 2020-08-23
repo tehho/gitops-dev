@@ -6,8 +6,11 @@ bases:
   - github.com/argoproj/argo-cd/manifests/cluster-install?ref=3d1f37b0c53f4c75864dc7339e2831c6e6a947e0
 
 resources:
+  # general
   - namespace.yaml
   - ingress.yaml
+  # applications
+  - app/argocd.yaml
 #   - base/argocd-sealed-secret.yaml
 #   - base/default-appprojects.yaml
 #   - base/servicemonitors.yaml
