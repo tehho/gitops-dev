@@ -2,12 +2,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
 spec:
+  project: default
   source:
     repoURL: git@github.com:entropy-fund/gitops-dev.git
-    path: argocd/
+    path: argocd
     targetRevision: master
   destination:
     server: https://kubernetes.default.svc
@@ -15,3 +15,4 @@ spec:
   syncPolicy:
     automated:
       prune: true
+      selfHeal: true

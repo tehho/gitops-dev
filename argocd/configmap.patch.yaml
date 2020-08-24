@@ -11,14 +11,11 @@ data:
   # statusbadge.enabled: 'true'
   # admin.enabled: 'false'
 
-  repositories: |
-    - type: helm
-      url: https://charts.bitnami.com/bitnami
-      name: bitnami
-    - url: git@github.com:entropy-fund/gitops-dev
-      sshPrivateKeySecret:
-        name: argo-secret
-        key: $gh.sshPrivateKey
+  # repositories: |
+  #   - url: git@github.com:entropy-fund/gitops-dev
+  #     sshPrivateKeySecret:
+  #       name: argo-secret
+  #       key: $gh.sshPrivateKey
   # dex.config: |
   #   connectors:
   #   - type: github

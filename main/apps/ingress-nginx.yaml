@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ingress-nginx
+  source:
+    repoURL: git@github.com:entropy-fund/gitops-dev.git
+    targetRevision: HEAD
+    path: ingress-nginx
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
