@@ -5,7 +5,7 @@ resources:
   # namespaces
   - namespaces/ingress-nginx.yaml
   - namespaces/sealed-secrets.yaml
-  - namespaces/argocd.yaml
+  # - namespaces/argocd.yaml
   # projects
   - projects/default.yaml
   # applications

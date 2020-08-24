@@ -6,13 +6,12 @@ Declarative spec for the dev cluster on GCP managed by ArgoCD
 ```
 kubectl create namespace argocd
 kubectl config set-context --current --namespace=argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-kubectl apply -f argocd/ingress.yaml
 ```
 
-2. Add a DNS record (using the IP in `kubectl get ingress` and the host in `argocd/ingress.yaml`) an then login via the CLI:
+2. Login via the CLI (pwd is the name of the `argo-server`):
 ```
-argocd login <ARGOCD_SERVER>
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+argocd login localhost:8080
 ```
 
 3. Bootstrap the main application:
@@ -29,3 +28,5 @@ argocd app create main \
 argocd app set main --sync-policy automated
 argocd app set main --auto-prune
 ```
+
+5. Add a DNS record (using the IP of the ingress-nginx and the host in `argocd/ingress.yaml`)
